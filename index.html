@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Church Jeopardy Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Church Jeopardy</h1>
+            <div class="score-display">
+                <span>Score: $<span id="score">0</span></span>
+            </div>
+        </header>
+
+        <div class="game-board">
+            <div class="category-headers">
+                <div class="category">LOVE</div>
+                <div class="category">SHARE</div>
+                <div class="category">INVITE</div>
+            </div>
+
+            <div class="question-grid">
+                <!-- Love Category -->
+                <div class="question-tile" data-category="love" data-value="100" data-question="What does 1 Corinthians 13:4 say love is?" data-answer="What is patient and kind?">
+                    $100
+                </div>
+                <div class="question-tile" data-category="love" data-value="200" data-question="Complete this verse: 'God is ___' (1 John 4:8)" data-answer="What is love?">
+                    $200
+                </div>
+                <div class="question-tile" data-category="love" data-value="300" data-question="Jesus said the greatest commandment is to love God and love your ___" data-answer="What is neighbor?">
+                    $300
+                </div>
+                <div class="question-tile" data-category="love" data-value="400" data-question="This disciple is known as 'the beloved disciple'" data-answer="Who is John?">
+                    $400
+                </div>
+                <div class="question-tile" data-category="love" data-value="500" data-question="John 3:16 says 'For God so loved the ___ that he gave his one and only Son'" data-answer="What is world?">
+                    $500
+                </div>
+
+                <!-- Share Category -->
+                <div class="question-tile" data-category="share" data-value="100" data-question="The early church shared everything in common according to this book of the Bible" data-answer="What is Acts?">
+                    $100
+                </div>
+                <div class="question-tile" data-category="share" data-value="200" data-question="Jesus fed 5,000 people starting with this many loaves and fish" data-answer="What is 5 loaves and 2 fish?">
+                    $200
+                </div>
+                <div class="question-tile" data-category="share" data-value="300" data-question="This widow shared her last bit of food with Elijah" data-answer="Who is the widow of Zarephath?">
+                    $300
+                </div>
+                <div class="question-tile" data-category="share" data-value="400" data-question="Jesus said it is more blessed to give than to ___" data-answer="What is receive?">
+                    $400
+                </div>
+                <div class="question-tile" data-category="share" data-value="500" data-question="This Old Testament practice required sharing 10% of one's income" data-answer="What is tithing?">
+                    $500
+                </div>
+
+                <!-- Invite Category -->
+                <div class="question-tile" data-category="invite" data-value="100" data-question="Jesus said 'Come and ___' to his first disciples" data-answer="What is follow me?">
+                    $100
+                </div>
+                <div class="question-tile" data-category="invite" data-value="200" data-question="This man invited Jesus to dinner and climbed a tree to see him" data-answer="Who is Zacchaeus?">
+                    $200
+                </div>
+                <div class="question-tile" data-category="invite" data-value="300" data-question="Jesus said 'Come unto me, all who are ___ and heavy laden'" data-answer="What is weary?">
+                    $300
+                </div>
+                <div class="question-tile" data-category="invite" data-value="400" data-question="The Great Commission tells us to go and make ___" data-answer="What are disciples?">
+                    $400
+                </div>
+                <div class="question-tile" data-category="invite" data-value="500" data-question="Revelation 22:17 says 'Come!' And let him who is ___ come" data-answer="What is thirsty?">
+                    $500
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Modal -->
+        <div id="question-modal" class="modal">
+            <div class="modal-content">
+                <h2 id="question-text"></h2>
+                <div class="modal-buttons">
+                    <button id="show-answer">Show Answer</button>
+                    <button id="correct" style="display: none;">Correct (+$<span id="correct-amount"></span>)</button>
+                    <button id="incorrect" style="display: none;">Incorrect (-$<span id="incorrect-amount"></span>)</button>
+                    <button id="close-modal" style="display: none;">Close</button>
+                </div>
+                <div id="answer-text" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
