@@ -153,11 +153,12 @@ header h1 {
 
 .modal-content {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
-    margin: 10% auto;
+    margin: 2% auto;
     padding: 40px;
     border-radius: 15px;
-    width: 80%;
-    max-width: 600px;
+    width: 75%;
+    max-width: 1000px;
+    min-width: 400px;
     text-align: center;
     border: 2px solid #FFD700;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -237,6 +238,20 @@ header h1 {
     font-family: monospace;
 }
 
+/* Media styling */
+#question-text video, #question-text iframe, #question-text img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#question-text iframe {
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: 300px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -259,9 +274,10 @@ header h1 {
     }
     
     .modal-content {
-        width: 95%;
-        margin: 5% auto;
+        width: 90%;
+        margin: 3% auto;
         padding: 30px;
+        min-width: 300px;
     }
     
     .modal-content h2 {

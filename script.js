@@ -4,13 +4,7 @@ class JeopardyGame {
         this.groupElement = document.getElementById('current-group');
         this.modal = document.getElementById('question-modal');
         this.questionText = document.getElementById('question-text');
-        this.answerText = document.getElementById('answer-text');
-        this.showAnswerBtn = document.getElementById('show-answer');
-        this.correctBtn = document.getElementById('correct');
-        this.incorrectBtn = document.getElementById('incorrect');
         this.closeModalBtn = document.getElementById('close-modal');
-        this.correctAmountSpan = document.getElementById('correct-amount');
-        this.incorrectAmountSpan = document.getElementById('incorrect-amount');
         this.lightbulbBtn = document.getElementById('lightbulb-btn');
         this.jesusBtn = document.getElementById('jesus-btn');
         
@@ -23,28 +17,14 @@ class JeopardyGame {
     
     async loadQuestions() {
         try {
-            // Try to load JSON first, then fall back to text file
-            let response = await fetch('questions.json');
-            if (response.ok) {
-                this.questionsData = await response.json();
-            } else {
-                // Fallback to text file
-                response = await fetch('questions.txt');
-                if (response.ok) {
-                    const textData = await response.text();
-                    this.questionsData = this.parseTextFile(textData);
-                } else {
-                    // Final fallback to embedded questions
-                    console.warn('Could not load external files, using embedded questions');
-                    this.questionsData = this.getEmbeddedQuestions();
-                }
-            }
+            // For static deployment, skip file loading and use embedded questions
+            console.log('Static deployment mode: using embedded questions');
+            this.questionsData = this.getEmbeddedQuestions();
             this.createGameBoard();
             this.initializeGame();
         } catch (error) {
             console.error('Error loading questions:', error);
-            console.warn('Using embedded questions as fallback');
-            // Use embedded questions as final fallback
+            // Use embedded questions as fallback
             this.questionsData = this.getEmbeddedQuestions();
             this.createGameBoard();
             this.initializeGame();
@@ -60,7 +40,7 @@ class JeopardyGame {
                     questions: [
                         {
                             value: 100,
-                            question: "Elder Wirthlin said, 'Do you love the Lord? Spend time with Him.' Why do you think it matters to spend time with the Lord? What is one way that you have found that works for you to spend time with Him?",
+                            question: "Elder Wirthlin said, ```Do you love the Lord? Spend time with Him.``` Why do you think it matters to spend time with the Lord? What is one way that you have found that works for you to spend time with Him?",
                             answer: "examples: prayer, meditation, music, art, studying scripture, etc."
                         },
                         {
@@ -81,17 +61,17 @@ class JeopardyGame {
                     questions: [
                         {
                             value: 100,
-                            question: "[Video Link](https://www.youtube.com/watch?v=01mbbpO2RjE) Which way sounds like it could work for you? How would you do that? Have you ever seen the gospel being shared this way? When or what was it that was shared? Who would be brave enough to do one of these right now?",
+                            question: "https://www.youtube.com/watch?v=01mbbpO2RjE\nWhich way sounds like it could work for you? How would you do that? Have you ever seen the gospel being shared this way? When or what was it that was shared? Who would be brave enough to do one of these right now?",
                             answer: "---"
                         },
                         {
                             value: 200,
-                            question: "```While on a flight to Peru a few years ago, I was seated next to a self-proclaimed atheist. He asked me why I believe in God. In the delightful conversation that ensued, I told him that I believed in God because Joseph Smith saw Him—and then I added that my knowledge of God also came from personal, real spiritual experience.``` How does this relate to *sharing*? Has anyone had a similar experience similar to this? If you had been asked, \"Why do you believe in God?\" what would you say?",
+                            question: "Elder Nash (GC 2021) shared his experience: ```While on a flight to Peru a few years ago, I was seated next to a self-proclaimed atheist. He asked me why I believe in God. In the delightful conversation that ensued, I told him that I believed in God because Joseph Smith saw Him—and then I added that my knowledge of God also came from personal, real spiritual experience. I shared my belief that \"all things denote there is a God\" and asked him how he believed the earth—this oasis of life in the vacuum of space—came into existence. He replied that, in his words, \"the accident\" could have happened over eons of time. When I explained how highly improbable it would be for an \"accident\" to produce such beauty and order, he was quiet for a time and then good-naturedly said, \"You got me.\" I asked if he would read the Book of Mormon. He said he would, so I sent him a copy.``` How does this relate to *sharing*? Has anyone had a similar experience similar to this? If you had been asked, \"Why do you believe in God?\" what would you say?",
                             answer: "Personal testimony and sharing experiences"
                         },
                         {
                             value: 300,
-                            question: "Elder Nash (GC 2021) said, ```When we were baptized, each of us entered into a perpetual covenant with God to \"serve him and keep his commandments,\" which includes \"to stand as witnesses of [Him] at all times and in all things, and in all places.\"``` What could that power look like in our daily lives?",
+                            question: "Elder Nash (GC 2021) said: ```When we were baptized, each of us entered into a perpetual covenant with God to \"serve him and keep his commandments,\" which includes \"to stand as witnesses of [Him] at all times and in all things, and in all places.\" As we \"abide in\" Him by keeping this covenant, the enlivening, sustaining, sanctifying power of godliness flows into our lives from Christ, just as a branch receives nourishment from the vine.``` What could that power look like in our daily lives?",
                             answer: "Standing as witnesses in all aspects of life"
                         }
                     ]
@@ -102,12 +82,12 @@ class JeopardyGame {
                     questions: [
                         {
                             value: 100,
-                            question: "Church Leaders Share Their First Invitation to Church (video) - How can you relate? Or, what's your story?",
+                            question: "[video](./InviteStories.mp4) How can you relate? Or, what's your story?",
                             answer: "---"
                         },
                         {
                             value: 200,
-                            question: "*[image of Christ at the door without a doorknob]* - How does this relate to inviting others to come unto Christ?",
+                            question: "[Jesus at the door](./JesusDoor.jpeg)\nHow does this relate to inviting others to come unto Christ?",
                             answer: "---"
                         },
                         {
@@ -199,10 +179,7 @@ class JeopardyGame {
             tile.addEventListener('click', () => this.openQuestion(tile));
         });
         
-        // Add event listeners to modal buttons
-        this.showAnswerBtn.addEventListener('click', () => this.showAnswer());
-        this.correctBtn.addEventListener('click', () => this.markAnswered());
-        this.incorrectBtn.addEventListener('click', () => this.markAnswered());
+        // Add event listener to close button
         this.closeModalBtn.addEventListener('click', () => this.closeModal());
         
         // Add event listeners to header buttons
@@ -225,9 +202,28 @@ class JeopardyGame {
     }
     
     renderMarkdown(text) {
-        // Simple markdown parser for basic formatting
+        // Simple markdown parser for basic formatting and media
         let html = text
-            // Links
+            // Handle video links with [video](path) syntax FIRST (before general links)
+            .replace(/\[video\]\(([^)]+)\)/g, (match, url) => {
+                if (url.includes('.mp4') || url.includes('.webm') || url.includes('.ogg')) {
+                    return `<video controls style="max-width: 100%; margin: 10px 0;"><source src="${url}" type="video/mp4">Your browser does not support the video tag.</video>`;
+                } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+                    // Convert YouTube URLs to embedded format
+                    let videoId = url.includes('youtu.be') ? 
+                        url.split('youtu.be/')[1].split('?')[0] : 
+                        url.split('v=')[1].split('&')[0];
+                    return `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen style="margin: 10px 0;"></iframe>`;
+                }
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer">video</a>`;
+            })
+            // Handle simple image syntax [./filename.ext] 
+            .replace(/\[\.\/(.*?\.(?:jpg|jpeg|png|gif|webp|bmp|svg))\]/gi, '<img src="./$1" alt="Image" style="max-width: 100%; margin: 10px 0; border-radius: 8px;" onerror="console.error(\'Failed to load image: ./$1\')">')
+            // Handle full path image syntax [filename.ext] 
+            .replace(/\[([^[\]]*\.(?:jpg|jpeg|png|gif|webp|bmp|svg))\]/gi, '<img src="$1" alt="Image" style="max-width: 100%; margin: 10px 0; border-radius: 8px;" onerror="console.error(\'Failed to load image: $1\')">')
+            // Handle markdown image syntax [alt](path.ext)
+            .replace(/\[([^[\]]*)\]\(([^)]+\.(?:jpg|jpeg|png|gif|webp|bmp|svg))\)/gi, '<img src="$2" alt="$1" style="max-width: 100%; margin: 10px 0; border-radius: 8px;" onerror="console.error(\'Failed to load image: $2\')">')
+            // Regular links (after video and image processing to avoid conflicts)
             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
             // URLs without markdown syntax
             .replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>')
@@ -257,20 +253,6 @@ class JeopardyGame {
         // Set question text with markdown rendering
         this.questionText.innerHTML = this.renderMarkdown(tile.dataset.question);
         
-        // Set answer text with markdown rendering (hidden initially)
-        this.answerText.innerHTML = this.renderMarkdown(tile.dataset.answer);
-        
-        // Remove dollar amount display from buttons since we're not scoring
-        this.correctBtn.innerHTML = 'Done';
-        this.incorrectBtn.innerHTML = 'Done';
-        
-        // Reset modal state
-        this.showAnswerBtn.style.display = 'inline-block';
-        this.correctBtn.style.display = 'none';
-        this.incorrectBtn.style.display = 'none';
-        this.closeModalBtn.style.display = 'none';
-        this.answerText.style.display = 'none';
-        
         // Show modal
         this.modal.style.display = 'block';
         
@@ -280,23 +262,21 @@ class JeopardyGame {
         }, 10);
     }
     
-    showAnswer() {
-        // Hide show answer button
-        this.showAnswerBtn.style.display = 'none';
-        
-        // Show answer text
-        this.answerText.style.display = 'block';
-        
-        // Show correct/incorrect buttons
-        this.correctBtn.style.display = 'inline-block';
-        this.incorrectBtn.style.display = 'inline-block';
-        this.closeModalBtn.style.display = 'inline-block';
+    closeModal() {
+        this.modal.style.display = 'none';
+        if (this.currentTile) {
+            this.markTileAnswered();
+            this.nextGroup();
+        }
+        this.currentTile = null;
+        this.currentQuestionValue = 0;
     }
     
-    markAnswered() {
-        this.markTileAnswered();
-        this.nextGroup();
-        this.closeModal();
+    markTileAnswered() {
+        if (this.currentTile) {
+            this.currentTile.classList.add('answered');
+            this.currentTile.textContent = '✓';
+        }
     }
     
     nextGroup() {
@@ -312,25 +292,12 @@ class JeopardyGame {
     
     openLightbulbVideo() {
         // Open lightbulb video in new tab
-        window.open('https://www.youtube.com/watch?v=your-lightbulb-video-id', '_blank');
+        window.open('https://youtu.be/cKkbIZtqhyQ', '_blank');
     }
     
     openJesusPicture() {
         // Open Jesus picture in new tab
         window.open('https://www.churchofjesuschrist.org/media/image/jesus-christ-pictures', '_blank');
-    }
-    
-    markTileAnswered() {
-        if (this.currentTile) {
-            this.currentTile.classList.add('answered');
-            this.currentTile.textContent = '✓';
-        }
-    }
-    
-    closeModal() {
-        this.modal.style.display = 'none';
-        this.currentTile = null;
-        this.currentQuestionValue = 0;
     }
     
     celebrateCorrectAnswer() {
