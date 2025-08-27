@@ -1,0 +1,67 @@
+{
+  "categories": [
+    {
+      "name": "LOVE",
+      "id": "love",
+      "questions": [
+        {
+          "value": 100,
+          "question": "Elder Wirthlin said, 'Do you love the Lord? Spend time with Him.' Why do you think it matters to spend time with the Lord? What is one way that you have found that works for you to spend time with Him?",
+          "answer": "examples: prayer, meditation, music, art, studying scripture, etc."
+        },
+        {
+          "value": 200,
+          "question": "Is there anything keeping you from feeling God's and others' love for you when you come to church?",
+          "answer": "Did you do it?"
+        },
+        {
+          "value": 300,
+          "question": "Think of someone in your life you find difficult to love. Ponder on one thing you can do to try to find love for them and commit to doing it this week.",
+          "answer": "Did you do it?"
+        }
+      ]
+    },
+    {
+      "name": "SHARE",
+      "id": "share",
+      "questions": [
+        {
+          "value": 100,
+          "question": "https://www.youtube.com/watch?v=01mbbpO2RjE Which way sounds like it could work for you? How would you do that? Have you ever seen the gospel being shared this way? When or what was it that was shared? Who would be brave enough to do one of these right now?",
+          "answer": "---"
+        },
+        {
+          "value": 200,
+          "question": "```While on a flight to Peru a few years ago, I was seated next to a self-proclaimed atheist. He asked me why I believe in God. In the delightful conversation that ensued, I told him that I believed in God because Joseph Smith saw Him—and then I added that my knowledge of God also came from personal, real spiritual experience. I shared my belief that \"all things denote there is a God\" and asked him how he believed the earth—this oasis of life in the vacuum of space—came into existence. He replied that, in his words, \"the accident\" could have happened over eons of time. When I explained how highly improbable it would be for an \"accident\" to produce such beauty and order, he was quiet for a time and then good-naturedly said, \"You got me.\" I asked if he would read the Book of Mormon. He said he would, so I sent him a copy.``` How does this relate to _sharing_? Has anyone had a similar expererince similar to this? If you had been asked, \"Why do you believe in God?\" what would you say?",
+          "answer": "What is 5 loaves and 2 fish?"
+        },
+        {
+          "value": 300,
+          "question": "Elder Nash (GC 2021) said, ```When we were baptized, each of us entered into a perpetual covenant with God to \"serve him and keep his commandments,\" which includes \"to stand as witnesses of [Him] at all times and in all things, and in all places.\" As we \"abide in\" Him by keeping this covenant, the enlivening, sustaining, sanctifying power of godliness flows into our lives from Christ, just as a branch receives nourishment from the vine.``` What could that power look like in our daily lives?",
+          "answer": "Who is the widow of Zarephath?"
+        }
+      ]
+    },
+    {
+      "name": "INVITE",
+      "id": "invite",
+      "questions": [
+        {
+          "value": 100,
+          "question": "Church Leaders Share Their First Invitation to Church (video) - How can you relate? Or, what's your story?",
+          "answer": "---"
+        },
+        {
+          "value": 200,
+          "question": "[image of Christ at the door without a doorknob] - How does this relate to inviting others to come unto Christ?",
+          "answer": "---"
+        },
+        {
+          "value": 300,
+          "question": "How does inviting our friends honor our covenants?",
+          "answer": "---"
+        }
+      ]
+    }
+  ]
+}

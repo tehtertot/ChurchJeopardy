@@ -14,12 +14,49 @@ An interactive web-based Jeopardy game with a church theme, featuring three cate
 ## 🚀 How to Play
 
 1. Open `index.html` in your web browser
-2. Click on any dollar amount tile to reveal a question
-3. Read the question and think of your answer
-4. Click "Show Answer" to reveal the correct answer
-5. Mark whether you got it correct or incorrect
-6. Your score will automatically update
-7. Continue until all questions are answered!
+2. Questions are automatically loaded from `questions.json` or `questions.txt`
+3. Click on any dollar amount tile to reveal a question
+4. Read the question and think of your answer
+5. Click "Show Answer" to reveal the correct answer
+6. Mark whether you got it correct or incorrect
+7. Your score will automatically update
+8. Continue until all questions are answered!
+
+## 📝 Customizing Questions
+
+You can customize the questions in two ways:
+
+### Option 1: JSON Format (`questions.json`)
+Edit the `questions.json` file with structured data:
+```json
+{
+  "categories": [
+    {
+      "name": "LOVE",
+      "id": "love",
+      "questions": [
+        {
+          "value": 100,
+          "question": "Your question here",
+          "answer": "Your answer here"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Option 2: Simple Text Format (`questions.txt`)
+Edit the `questions.txt` file using this simple format:
+```
+# Comments start with #
+CATEGORY|VALUE|QUESTION|ANSWER
+
+# Example:
+LOVE|100|What does 1 Corinthians 13:4 say love is?|What is patient and kind?
+```
+
+The game will automatically try to load `questions.json` first, then fall back to `questions.txt` if the JSON file isn't found.
 
 ## 📁 Project Structure
 
@@ -28,6 +65,8 @@ church-jeopardy/
 ├── index.html          # Main game page
 ├── styles.css          # Game styling and animations
 ├── script.js           # Game logic and interactions
+├── questions.json      # Questions in JSON format
+├── questions.txt       # Questions in simple text format
 ├── README.md           # This file
 └── .github/
     └── copilot-instructions.md
