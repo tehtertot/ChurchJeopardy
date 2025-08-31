@@ -296,8 +296,8 @@ class JeopardyGame {
     }
     
     openJesusPicture() {
-        // Open Jesus picture in new tab
-        window.open('https://www.churchofjesuschrist.org/media/image/jesus-christ-pictures', '_blank');
+        // Open local Jesus picture in new tab
+        window.open('./JesusWater.jpg', '_blank');
     }
     
     celebrateCorrectAnswer() {
