@@ -66,7 +66,7 @@ class JeopardyGame {
                         },
                         {
                             value: 200,
-                            question: "Elder Nash (GC 2021) shared his experience: ```While on a flight to Peru a few years ago, I was seated next to a self-proclaimed atheist. He asked me why I believe in God. In the delightful conversation that ensued, I told him that I believed in God because Joseph Smith saw Him—and then I added that my knowledge of God also came from personal, real spiritual experience. I shared my belief that \"all things denote there is a God\" and asked him how he believed the earth—this oasis of life in the vacuum of space—came into existence. He replied that, in his words, \"the accident\" could have happened over eons of time. When I explained how highly improbable it would be for an \"accident\" to produce such beauty and order, he was quiet for a time and then good-naturedly said, \"You got me.\" I asked if he would read the Book of Mormon. He said he would, so I sent him a copy.``` How does this relate to *sharing*? Has anyone had a similar experience similar to this? If you had been asked, \"Why do you believe in God?\" what would you say?",
+                            question: "Look up Hymn 223. Read through the verses and share with us how it fits the topic of Share.",
                             answer: "Personal testimony and sharing experiences"
                         },
                         {
